@@ -14,6 +14,5 @@ when drawing error box, do
 ``
 left = reciprocal (x + error_x)
 right = reciprocal (x - error_x)
-
 ``
 )
