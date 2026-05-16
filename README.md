@@ -8,7 +8,7 @@ input data and error range, create utility functions for yourself if you need
 
 (eg. you can do inverse relationship like this: 
 
-provide x and y values normally, create a function reciprocal(x) and call `reciprocal(x) for x in x` on line 13
+provide x and y values normally, then create a function reciprocal(x) and call ``reciprocal(x) for x in x`` on line 13
 
 when drawing error box, do 
 ``
