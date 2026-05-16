@@ -2,10 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
-
-def reciprocal(r):
-    return 1 / r
-
 # data of the lab
 x = []
 y = []
