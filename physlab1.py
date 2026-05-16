@@ -6,19 +6,23 @@ from matplotlib.patches import Rectangle
 def reciprocal(r):
     return 1 / r
 
+# data of the lab
+x = []
+y = []
 
-h = [0.158, 0.149, 0.130, 0.118, 0.103, 0.091, 0.079]
-r = [0.046, 0.052, 0.064, 0.071, 0.089, 0.098, 0.105]
+#error for x and y
+error_x = 0.05
+error_y = 0.05
 
-x_center = [reciprocal(ri) for ri in r]
-y_center = [hi for hi in h]
+x_center = [x for x in x]
+y_center = [y for y in y]
 
 boxes = []
-for hi, ri in zip(h, r):
-    left   = reciprocal(ri + 0.0083)
-    right  = reciprocal(ri - 0.0083)
-    bottom = hi - 0.005
-    top    = hi + 0.005
+for y, x in zip(y, x):
+    left   = x - error_x
+    right  = x + error_x
+    bottom = y - error_y
+    top    = y + error_y
     boxes.append({
         "left": left, "right": right,
         "bottom": bottom, "top": top,
