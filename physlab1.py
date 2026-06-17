@@ -3,22 +3,32 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
 # data of the lab
-x = []
-y = []
+x = [[0.55, 0.75], [0.55, 0.72], [0.55, 0.77], [0.555, 0.88], [0.55, 1.12]]
+y = [0.295, 0.355, 0.397, 0.411, 0.462]
+
 
 #error for x and y
-error_x = 0.05
+error_x = 0.6
 error_y = 0.05
 
-x_center = [x for x in x]
-y_center = [y for y in y]
+def div(arr):
+    return arr[0] / arr[1]
+
+def calc(data):
+    return 6 - data * 8.33
+
+x_center = [div(x) for x in x]
+y_center = [calc(y) for y in y]
+
+print (x_center)
+print (y_center)
 
 boxes = []
 for y, x in zip(y, x):
-    left   = x - error_x
-    right  = x + error_x
-    bottom = y - error_y
-    top    = y + error_y
+    left   = (x[0] - 0.01) / (x[1] + 0.155)
+    right  = (x[0] + 0.01) / (x[1] - 0.155)
+    bottom =  6 - (y + 0.005) * 8.33
+    top    = 6 - (y - 0.005) * 8.33
     boxes.append({
         "left": left, "right": right,
         "bottom": bottom, "top": top,
@@ -124,9 +134,9 @@ plt.plot(x_vals, [best_m * x + best_b for x in x_vals],
          linewidth=2, linestyle="-",  color="green",
          label=f"Best fit  = {best_m:.4f}")
 
-plt.title("h vs 1/r graph - part 2: charged particle moving towards a point charge")
-plt.xlabel("1/r (1/m)")
-plt.ylabel("h (m)")
+plt.title("back emf vs velocity graph - DC Motor lab")
+plt.xlabel("velocity (m/s)")
+plt.ylabel("back emf (V)")
 plt.grid(True)
 plt.legend()
 plt.tight_layout()
